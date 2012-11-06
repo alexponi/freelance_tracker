@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= nested_messages @message.subtree.arrange(:order => :created_at) %>
+
 <p>
   <b>Content:</b>
   <%= @track.content %>

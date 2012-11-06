@@ -1,0 +1,18 @@
+<div class="track">
+  <div class="created_at">
+    
+    <%= form_for @track do |f| %>
+        <%= f.button "Stop"%>
+      <% end %>
+    
+  </div>
+  <div class="content">
+    <%= link_to track.content, track %>
+
+  </div>
+  <div class="actions">
+    <%= link_to "Create nested", new_track_path(:parent_id => track) %> |
+    <%= link_to 'Edit', edit_track_path(track) %> |
+    <%= link_to "Destroy", track, :confirm => "Are you sure?", :method => :delete %>
+  </div>
+</div>

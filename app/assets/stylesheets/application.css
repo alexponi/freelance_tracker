@@ -12,7 +12,7 @@
  *= require_tree .
  */
 html, body {
-  background-color: #006600;
+  background-color: #FFFFFF;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -32,8 +32,9 @@ a {
 }
 
 #container {
-  width: 75%;
+  width: 70%;
   margin: 0 auto;
+  border-radius: 12px;
   background-color: #ffffcc;
   padding: 20px 40px;
   border: solid 1px black;
@@ -97,13 +98,13 @@ a {
       linear,
       left bottom,
       left top,
-      color-stop(0, #CCC),
-      color-stop(1, #F5F5F5)
+      color-stop(0, #ffff99),
+      color-stop(1, #ffcc66)
   );
   background-image: -moz-linear-gradient(
       center bottom,
-      #CCC 0%,
-      #F5F5F5 100%
+      #ffff99 0%,
+      #ffcc66 100%
   );
 }
 
@@ -131,6 +132,6 @@ a {
   margin-left: 50px;
 }
 
-.nested_tracks .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages {
+.nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks .nested_tracks {
   margin-left: 0;
 }

@@ -1,17 +1,10 @@
 <h1>Tracks</h1>
 
-<table>
-  
 
-<% @tracks.each do |track| %>
-  <tr>
-    <td><%= track.content %></td>
-    <td><%= track.sum_time %></td>
-    <td><%= link_to 'Edit', edit_track_path(track) %></td>
-    <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  
+<%= nested_tracks @tracks.arrange(:order => :ancestry) %>
+
+
 <br />
 <br />
 <%= render 'form' %>
