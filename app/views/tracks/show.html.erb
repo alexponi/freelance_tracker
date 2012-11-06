@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Content:</b>
+  <%= @track.content %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%= @track.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%= @track.end_at %>
+</p>
+
+<p>
+  <b>Sum time:</b>
+  <%= @track.sum_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %>
