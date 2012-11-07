@@ -1,27 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= nested_messages @message.subtree.arrange(:order => :created_at) %>
-
-<p>
-  <b>Content:</b>
-  <%= @track.content %>
-</p>
-
-<p>
-  <b>Start at:</b>
-  <%= @track.start_at %>
-</p>
-
-<p>
-  <b>End at:</b>
-  <%= @track.end_at %>
-</p>
-
-<p>
-  <b>Sum time:</b>
-  <%= @track.sum_time %>
-</p>
-
+<%= nested_tracks @track.subtree.arrange(:order => :created_at) %>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>

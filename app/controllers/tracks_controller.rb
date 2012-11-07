@@ -57,14 +57,28 @@ class TracksController < ApplicationController
 
   end
 
+
   # PUT /tracks/1
   # PUT /tracks/1.json
   def update
     @track = Track.find(params[:id])
 
+    if @track.update_attributes(params[:track])
+      if @track.ancestry != nil
+        (@track.ancestry.split('/')).each do |i|
+          parent_track = Track.find(i)
+          pp = parent_track.sum_time
+          if pp == nil
+            pp = 0
+          end  
+          parent_track.update_attributes(sum_time: @track.sum_time + pp)
+        end
+      end
+    end
+
     respond_to do |format|
-      if @track.update_attributes(params[:track])
-        format.html { redirect_to tracks_url, notice: 'Track was successfully updated.' }
+      if @track.update_attributes(params[:track])    
+        format.html { redirect_to tracks_url, notice: 'Track was successfully stoped.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,6 +86,8 @@ class TracksController < ApplicationController
       end
     end
   end
+  
+
 
   # DELETE /tracks/1
   # DELETE /tracks/1.json

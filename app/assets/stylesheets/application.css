@@ -34,7 +34,7 @@ a {
 #container {
   width: 70%;
   margin: 0 auto;
-  border-radius: 12px;
+  border-radius: 18px;
   background-color: #ffffcc;
   padding: 20px 40px;
   border: solid 1px black;
@@ -114,7 +114,7 @@ a {
 }
 
 .track .created_at {
-  color: #555;
+  color: #FF3300;
   font-size: 12px;
   float: right;
 }
@@ -127,6 +127,87 @@ a {
 .track .actions a {
   text-decoration: none;
 }
+
+.track_root {
+  margin: 8px 0;
+  padding: 8px 15px;
+  border: solid 1px #999;
+  width: 300px;
+  border-radius: 12px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, #ffff99),
+      color-stop(1, #99ff33)
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      #ffff99 0%,
+      #99ff33 100%
+  );
+}
+
+.track_root .content a {
+  color: #000;
+  text-decoration: none;
+}
+
+.track_root .created_at {
+  color: #FF3300;
+  font-size: 12px;
+  float: right;
+}
+
+.track_root .actions {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.track_root .actions a {
+  text-decoration: none;
+}
+
+.track_stop {
+  margin: 8px 0;
+  padding: 8px 15px;
+  border: solid 1px #999;
+  width: 300px;
+  border-radius: 12px;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, #FFFFFF),
+      color-stop(1, #66cccc)
+  );
+  background-image: -moz-linear-gradient(
+      center bottom,
+      #FFFFFF 0%,
+      #66cccc 100%
+  );
+}
+
+.track_stop .content a {
+  color: #000;
+  text-decoration: none;
+}
+
+.track_stop .created_at {
+  color: #FF3300;
+  font-size: 12px;
+  float: right;
+}
+
+.track_stop .actions {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.track_stop .actions a {
+  text-decoration: none;
+}
+
 
 .nested_tracks {
   margin-left: 50px;

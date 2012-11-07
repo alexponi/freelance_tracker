@@ -1,18 +1,42 @@
+<% if track.end_at != nil %>
+<div class="track_stop">
+<% else%>
+<% if track.ancestry == nil%>
+<div class="track_root">
+<% else %>
 <div class="track">
-  <div class="created_at">
-    
-    <%= form_for @track do |f| %>
-        <%= f.button "Stop"%>
-      <% end %>
-    
+<% end %>
+<% end %>  
+  <div class="created_at">      
+  <% if track.sum_time != nil %>
+  <%= track.sum_time / 3600 %> hours <%= (track.sum_time / 60).round - ((track.sum_time / 3600).round * 60 ) %> minutes
+  <% end %>      
+      
   </div>
+  
   <div class="content">
     <%= link_to track.content, track %>
 
   </div>
   <div class="actions">
+    
+    <% if track.end_at == nil %>
     <%= link_to "Create nested", new_track_path(:parent_id => track) %> |
-    <%= link_to 'Edit', edit_track_path(track) %> |
+    <% end %>
     <%= link_to "Destroy", track, :confirm => "Are you sure?", :method => :delete %>
+    <% if track.sum_time == nil %>
+    | <%= link_to "Stop", edit_track_path(track) %>
+    <% end %>
+    <% if track.end_at != nil %>
+     | Track stopped <%= track.end_at.strftime("%B %d, %Y") %>
+    <% end %>
   </div>
 </div>
+
+
+
+
+
+
+
+

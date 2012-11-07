@@ -1,6 +1,26 @@
-<h1>Editing track</h1>
+<h1>Stop track</h1>
 
-<%= render 'form' %>
+<%= form_for(@track) do |f| %>
+  <% if @track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+      <% @track.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.hidden_field :parent_id %>
+    <%= f.hidden_field :sum_time, :value => Time.zone.now.to_i - @track.created_at.to_i %>
+    <%= f.hidden_field :end_at, :value => Time.zone.now %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Stop"%>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @track %> |
 <%= link_to 'Back', tracks_path %>
