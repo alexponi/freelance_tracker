@@ -1,7 +1,10 @@
 Tracker::Application.routes.draw do
+  devise_for :users
+
   get "pages/index"
 
   resources :tracks
+  resources :users
 
   root to: "pages#index"
 

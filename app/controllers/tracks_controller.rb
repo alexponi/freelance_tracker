@@ -1,4 +1,7 @@
 class TracksController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :correct_user,   only: [:index, :new, :show, :edit,:update,:destroy]
+  
   # GET /tracks
   # GET /tracks.json
   def index
@@ -101,3 +104,20 @@ class TracksController < ApplicationController
     end
   end
 end
+
+
+private
+
+    # def signed_in_user
+    #   unless signed_in?
+    #     store_location
+    #     redirect_to signin_url, notice: "Please sign in."
+    #   end
+    # end
+
+    def correct_user
+      if user_signed_in?
+        @track = current_user.tracks.find_by_id(params[:id])
+        # redirect_to root_url if @track.nil?
+      end
+    end

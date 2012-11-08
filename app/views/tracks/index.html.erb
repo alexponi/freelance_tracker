@@ -1,8 +1,9 @@
 <h1>Tracks</h1>
-  
-<%= nested_tracks @tracks.arrange(:order => :ancestry) %>
+<% if user_signed_in? %>
+<%= nested_tracks @current_user.tracks.arrange(:order => :ancestry) %>
 
 <br />
 <%= render 'form' %>
 <br />
+<% end %>
 

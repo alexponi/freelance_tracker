@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  <% if user_signed_in? %>
   <div class="field">
     <%= f.hidden_field :parent_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>      
     <%= f.label :content %><br />
     <%= f.text_area :content, :rows => 5 %>
   </div>
@@ -20,4 +21,6 @@
     <%= f.submit "Create track"%>
   </div>
 <% end %>
+<% end %>
+
 
